@@ -1,0 +1,7 @@
+@import url(./__title/start__title.css);
+@import url(./__subtitle/start__subtitle.css);
+@import url(./__button/start__button.css);
+
+.start {
+  text-align: center;
+}

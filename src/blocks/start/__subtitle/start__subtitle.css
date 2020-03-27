@@ -1,0 +1,16 @@
+.start__subtitle {
+  font-size: 1rem;
+  margin: 15px 0 0 0;
+}
+
+@media (min-width: 764px) {
+  .start__subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .start__subtitle {
+    font-size: 1.2rem;
+  }
+}

@@ -1,0 +1,19 @@
+.start__title {
+  font-family: 'Rhodium Libre', serif;
+  margin: 15px 0 0 0;
+  font-size: 2rem;
+}
+
+@media (min-width: 764px) {
+  .start__title {
+    font-size: 3rem;
+    margin-top: 30px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .start__title {
+    font-size: 3.5rem;
+    margin-top: 45px;
+  }
+}
