@@ -1,0 +1,32 @@
+.start__button {
+  background-color: white;
+  border: 1px solid #000;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  height: 30px;
+  width: 100px;
+  margin-top: 20px;
+  outline: none;
+}
+
+.start__button:hover {
+  color: white;
+  background-color: #a44200;
+  border-color: #a44200;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .start__button {
+    height: 40px;
+    width: 110px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .start__button {
+    height: 45px;
+    width: 120px;
+    font-size: 1.2rem;
+  }
+}
