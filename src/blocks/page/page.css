@@ -1,0 +1,10 @@
+.page {
+  font-family: 'Roboto', sans-serif;
+}
+
+@media (min-width: 1280px) {
+  .page {
+    min-width: 1184px;
+    margin: auto;
+  }
+}
