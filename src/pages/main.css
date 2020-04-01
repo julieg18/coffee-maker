@@ -1,3 +1,9 @@
-@import url('https://necolas.github.io/normalize.css/8.0.1/normalize.css');
-@import url('https://fonts.googleapis.com/css?family=Rhodium+Libre|Roboto&display=swap');
-@import url('../blocks/page/page.css');
+@import url(https://necolas.github.io/normalize.css/8.0.1/normalize.css);
+@import url(https://fonts.googleapis.com/css?family=Rhodium+Libre|Roboto&display=swap);
+@import url(../blocks/page/page.css);
+@import url(../blocks/main/main.css);
+@import url(../blocks/your-coffee/your-coffee.css);
+@import url(../blocks/section-title/section-title.css);
+@import url(../blocks/coffee/coffee.css);
+@import url(../blocks/customizations/customizations.css);
+@import url(../blocks/customization/customization.css);

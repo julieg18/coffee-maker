@@ -1,0 +1,5 @@
+.coffee__container {
+  fill: none;
+  stroke: #000;
+  d: path('M 10 10 L 90 10 L 80 90 L 20 90 Z');
+}

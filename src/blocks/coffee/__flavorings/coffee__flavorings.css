@@ -1,0 +1,12 @@
+.coffee__flavorings {
+  position: absolute;
+  display: grid;
+  width: 100%;
+  height: 60%;
+  margin: 0;
+  padding: 0;
+  bottom: 0;
+  list-style: none;
+  grid-template-rows: repeat(5, 20%);
+  grid-template-columns: repeat(5, 20%);
+}

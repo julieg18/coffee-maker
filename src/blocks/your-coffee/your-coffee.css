@@ -1,0 +1,9 @@
+.your-coffee {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .your-coffee {
+    width: 50%;
+  }
+}

@@ -1,0 +1,32 @@
+.coffee__flavoring {
+  width: 15px;
+  height: 15px;
+  border-radius: 80% 0 55% 50% / 55% 0 80% 50%;
+  border: 1px solid black;
+  transform: rotate(-45deg);
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 375px) {
+  .coffee__flavoring {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .coffee__flavoring {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .coffee__flavoring {
+    width: 35px;
+    height: 35px;
+  }
+}
