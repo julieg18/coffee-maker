@@ -1,5 +1,5 @@
 .coffee__container {
   fill: none;
   stroke: #000;
-  d: path('M 10 10 L 90 10 L 80 90 L 20 90 Z');
+  d: path('M 1 25 L 99 25 L 85 149 L 15 149 Z');
 }
