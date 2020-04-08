@@ -1,3 +1,13 @@
 .coffee__flavorings_size_small {
-  height: 60%;
+  height: 56%;
+  bottom: 6px;
+}
+
+@media (min-width: 375px) {
+  .coffee__flavorings_size_small {
+    width: 86%;
+    height: 51%;
+    bottom: 16px;
+    right: 13px;
+  }
 }

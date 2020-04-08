@@ -10,3 +10,9 @@
     width: 50%;
   }
 }
+
+@media (min-width: 1024px) {
+  .customizations {
+    width: 60%;
+  }
+}

@@ -7,3 +7,9 @@
     width: 50%;
   }
 }
+
+@media (min-width: 1024px) {
+  .your-coffee {
+    width: 40%;
+  }
+}
