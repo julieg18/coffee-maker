@@ -2,10 +2,10 @@
   position: absolute;
   display: grid;
   width: 92%;
-  height: 79%;
+  height: 72%;
   margin: 0;
   padding: 0;
-  bottom: -5px;
+  bottom: -1px;
   right: 5px;
   list-style: none;
   grid-template-rows: repeat(5, 20%);
@@ -14,9 +14,9 @@
 
 @media (min-width: 375px) {
   .coffee__flavorings {
-    right: 10px;
-    height: 77%;
-    bottom: -1px;
-    width: 90%;
+    right: 13px;
+    height: 70%;
+    bottom: 3px;
+    width: 86%;
   }
 }
