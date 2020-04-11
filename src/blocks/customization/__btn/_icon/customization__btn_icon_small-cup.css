@@ -1,0 +1,9 @@
+.customization__btn_icon_small-cup {
+  background-image: url(../../../../images/small-cup.svg);
+  background-position: center;
+  background-size: 50%;
+}
+
+.customization__input:checked + .customization__btn_icon_small-cup {
+  background-image: url(../../../../images/white-small-cup.svg);
+}

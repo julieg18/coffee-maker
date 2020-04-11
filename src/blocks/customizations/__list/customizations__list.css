@@ -1,0 +1,18 @@
+.customizations__list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 20px 0;
+}
+
+@media (min-width: 768px) {
+  .customizations__list {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+  }
+}
+
+@media (min-width: 1024px) {
+  .customizations__list {
+    margin: 25px 20px 0;
+  }
+}

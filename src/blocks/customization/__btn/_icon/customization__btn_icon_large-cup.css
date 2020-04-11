@@ -1,0 +1,9 @@
+.customization__btn_icon_large-cup {
+  background-image: url(../../../../images/large-cup.svg);
+  background-position: center;
+  background-size: 50%;
+}
+
+.customization__input:checked + .customization__btn_icon_large-cup {
+  background-image: url(../../../../images/white-large-cup.svg);
+}

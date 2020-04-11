@@ -1,0 +1,7 @@
+.customization__btn_icon_peppermint {
+  background-image: url(../../../../images/candy-cane.svg);
+}
+
+.customization__input:checked + .customization__btn_icon_peppermint {
+  background-image: url(../../../../images/white-candy-cane.svg);
+}

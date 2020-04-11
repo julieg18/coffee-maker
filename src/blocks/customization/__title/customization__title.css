@@ -1,0 +1,11 @@
+.customization__title {
+  text-align: left;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+@media (min-width: 1280px) {
+  .customization__title {
+    font-size: 1.2rem;
+  }
+}

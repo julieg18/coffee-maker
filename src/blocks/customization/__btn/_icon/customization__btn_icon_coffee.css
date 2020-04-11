@@ -1,0 +1,7 @@
+.customization__btn_icon_coffee {
+  background-image: url(../../../../images/coffee.svg);
+}
+
+.customization__input:checked + .customization__btn_icon_coffee {
+  background-image: url(../../../../images/white-coffee.svg);
+}
