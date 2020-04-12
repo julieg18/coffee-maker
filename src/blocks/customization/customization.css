@@ -11,3 +11,15 @@
 @import url(./__btn/_icon/customization__btn_icon_chocolate.css);
 @import url(./__btn/_icon/customization__btn_icon_peppermint.css);
 @import url(./__btn/_icon/customization__btn_icon_whipped-cream.css);
+@import url(./__label-text/customization__label-text.css);
+
+.customization {
+  margin-top: 20px;
+}
+
+@media (min-width: 425px) {
+  .customization {
+    width: 90%;
+    margin: 20px auto 0;
+  }
+}
