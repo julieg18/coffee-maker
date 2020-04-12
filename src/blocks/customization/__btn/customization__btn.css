@@ -11,6 +11,6 @@
 }
 
 .customization__input:checked + .customization__btn {
-  background-color: #69140e;
-  border: none;
+  background-color: #a44200;
+  border-color: #a44200;
 }
