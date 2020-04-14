@@ -4,6 +4,7 @@
   background-size: 50%;
 }
 
-.customization__input:checked + .customization__btn_icon_large-cup {
+.customization__input:checked + .customization__btn_icon_large-cup,
+.customization__option:hover .customization__btn_icon_large-cup {
   background-image: url(../../../../images/white-large-cup.svg);
 }

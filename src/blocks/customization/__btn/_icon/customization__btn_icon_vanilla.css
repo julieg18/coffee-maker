@@ -2,6 +2,7 @@
   background-image: url(../../../../images/vanilla.svg);
 }
 
-.customization__input:checked + .customization__btn_icon_vanilla {
+.customization__input:checked + .customization__btn_icon_vanilla,
+.customization__option:hover .customization__btn_icon_vanilla {
   background-image: url(../../../../images/white-vanilla.svg);
 }

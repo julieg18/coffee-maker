@@ -3,6 +3,7 @@
   background-color: #fff;
   font-size: 1.2rem;
   padding: 5px 10px;
+  transition: background-color ease-in-out 0.2s;
 }
 
 .customization__choices li:first-child .customization__choice-btn {
@@ -13,10 +14,15 @@
   border-radius: 0 25% 25% 0;
 }
 
-.customization__input:checked + .customization__choice-btn {
+.customization__input:checked + .customization__choice-btn,
+.customization__choice-btn:hover {
   background-color: #a44200;
   border-color: #a44200;
   color: #fff;
+}
+
+.customization__choice-btn:hover {
+  cursor: pointer;
 }
 
 @media (min-width: 1024px) and (max-width: 1200px) {
