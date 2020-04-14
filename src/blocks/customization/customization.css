@@ -10,8 +10,16 @@
 @import url(./__btn/_icon/customization__btn_icon_vanilla.css);
 @import url(./__btn/_icon/customization__btn_icon_chocolate.css);
 @import url(./__btn/_icon/customization__btn_icon_peppermint.css);
+@import url(./__btn/_icon/customization__btn_icon_cream.css);
+@import url(./__btn/_icon/customization__btn_icon_soy-milk.css);
+@import url(./__btn/_icon/customization__btn_icon_almond-milk.css);
 @import url(./__btn/_icon/customization__btn_icon_whipped-cream.css);
 @import url(./__label-text/customization__label-text.css);
+@import url(./__multi-choice-options/customization__multi-choice-options.css);
+@import url(./__multi-choice-option/customization__multi-choice-option.css);
+@import url(./__choices/customization__choices.css);
+@import url(./__choice/customization__choice.css);
+@import url(./__choice-btn/customization__choice-btn.css);
 
 .customization {
   margin-top: 20px;

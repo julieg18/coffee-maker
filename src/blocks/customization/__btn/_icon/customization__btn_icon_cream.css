@@ -1,0 +1,8 @@
+.customization__btn_icon_cream {
+  background-image: url(../../../../images/cream.svg);
+  background-position: center;
+}
+
+.customization__input:checked + .customization__btn_icon_cream {
+  background-image: url(../../../../images/white-cream.svg);
+}

@@ -1,0 +1,7 @@
+.customization__btn_icon_soy-milk {
+  background-image: url(../../../../images/soy-milk.svg);
+}
+
+.customization__input:checked + .customization__btn_icon_soy-milk {
+  background-image: url(../../../../images/white-soy-milk.svg);
+}

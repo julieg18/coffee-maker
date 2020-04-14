@@ -1,0 +1,8 @@
+.customization__multi-choice-option {
+  display: flex;
+  margin-top: 20px;
+}
+
+.customization__multi-choice-option:first-of-type {
+  margin-top: 10px;
+}
