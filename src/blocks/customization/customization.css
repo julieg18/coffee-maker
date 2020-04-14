@@ -1,6 +1,8 @@
 @import url(./__title/customization__title.css);
 @import url(./__options/customization__options.css);
+@import url(./__option-wrapper/customization__option-wrapper.css);
 @import url(./__option/customization__option.css);
+@import url(./__option/_type/customization__option_type_multi-choice.css);
 @import url(./__input/customization__input.css);
 @import url(./__btn/customization__btn.css);
 @import url(./__btn/_icon/customization__btn_icon_small-cup.css);
