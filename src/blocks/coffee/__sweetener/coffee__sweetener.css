@@ -1,0 +1,118 @@
+.coffee__sweetener {
+  display: none;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.coffee__sweetener:nth-of-type(1) {
+  x: 9;
+  y: 30;
+}
+
+.coffee__sweetener:nth-of-type(2) {
+  x: 34;
+  y: 37;
+}
+
+.coffee__sweetener:nth-of-type(3) {
+  x: 66;
+  y: 25;
+}
+
+.coffee__sweetener:nth-of-type(4) {
+  x: 72;
+  y: 41;
+}
+
+.coffee__sweetener:nth-of-type(5) {
+  y: 22;
+  x: 23;
+}
+
+.coffee__sweetener:nth-of-type(1),
+.coffee__sweetener:nth-of-type(2),
+.coffee__sweetener:nth-of-type(3),
+.coffee__sweetener:nth-of-type(4),
+.coffee__sweetener:nth-of-type(5) {
+  visibility: hidden;
+}
+
+.coffee__sweetener:nth-of-type(6) {
+  y: 50;
+  x: 10;
+}
+
+.coffee__sweetener:nth-of-type(7) {
+  x: 15;
+  y: 70;
+}
+
+.coffee__sweetener:nth-of-type(8) {
+  x: 20;
+  y: 60;
+}
+
+.coffee__sweetener:nth-of-type(9) {
+  x: 33;
+  y: 75;
+}
+
+.coffee__sweetener:nth-of-type(10) {
+  x: 25;
+  y: 100;
+}
+
+.coffee__sweetener:nth-of-type(11) {
+  x: 47;
+  y: 88;
+}
+
+.coffee__sweetener:nth-of-type(12) {
+  x: 57;
+  y: 53;
+}
+
+.coffee__sweetener:nth-of-type(13) {
+  x: 69;
+  y: 65;
+}
+
+.coffee__sweetener:nth-of-type(14) {
+  x: 61;
+  y: 79;
+}
+
+.coffee__sweetener:nth-of-type(15) {
+  x: 83;
+  y: 57;
+}
+
+.coffee__sweetener:nth-of-type(16) {
+  x: 84;
+  y: 70;
+}
+
+.coffee__sweetener:nth-of-type(17) {
+  x: 22;
+  y: 136;
+}
+
+.coffee__sweetener:nth-of-type(18) {
+  x: 35;
+  y: 123;
+}
+
+.coffee__sweetener:nth-of-type(19) {
+  x: 68;
+  y: 115;
+}
+
+.coffee__sweetener:nth-of-type(20) {
+  x: 80;
+  y: 125;
+}
+
+.coffee__sweetener:nth-of-type(21) {
+  x: 50;
+  y: 144;
+}

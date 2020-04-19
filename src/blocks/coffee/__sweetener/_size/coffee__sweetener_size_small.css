@@ -1,0 +1,6 @@
+.coffee__sweetener_size_small:nth-of-type(6),
+.coffee__sweetener_size_small:nth-of-type(8),
+.coffee__sweetener_size_small:nth-of-type(12),
+.coffee__sweetener_size_small:nth-of-type(15) {
+  visibility: hidden;
+}
