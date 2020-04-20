@@ -1,0 +1,10 @@
+@import url(./__header/footer__header.css);
+@import url(./__attributions/footer__attributions.css);
+@import url(./__attribution/footer__attribution.css);
+@import url(./__attribution-link/footer__attribution-link.css);
+
+.footer {
+  background: #a44200;
+  color: #fff;
+  padding: 15px;
+}

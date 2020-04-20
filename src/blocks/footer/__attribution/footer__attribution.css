@@ -1,0 +1,7 @@
+.footer__attribution {
+  font-size: 0.9rem;
+}
+
+.footer__attribution + .footer__attribution {
+  margin-top: 10px;
+}

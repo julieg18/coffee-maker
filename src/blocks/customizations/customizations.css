@@ -3,6 +3,7 @@
 .customizations {
   background-color: #faf8f8;
   text-align: center;
+  padding-bottom: 50px;
 }
 
 @media (min-width: 768px) {
