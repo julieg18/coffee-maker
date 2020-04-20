@@ -1,0 +1,24 @@
+.main__finish-btn {
+  position: sticky;
+  top: 15px;
+  width: 90%;
+  padding: 10px 15px;
+  margin: 15px 15px 0;
+  font-size: 1.1rem;
+}
+
+@media (min-width: 1000px) {
+  .main__finish-btn {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    margin: 0;
+    width: initial;
+  }
+}
+
+@media (min-width: 1280px) {
+  .main__finish-btn {
+    right: calc(15px + ((100vw - 1184px) / 2));
+  }
+}

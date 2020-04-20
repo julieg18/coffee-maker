@@ -1,5 +1,4 @@
-.main {
-}
+@import url(./__finish-btn/main__finish-btn.css);
 
 @media (min-width: 768px) {
   .main {

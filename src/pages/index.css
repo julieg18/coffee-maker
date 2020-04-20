@@ -1,5 +1,6 @@
 @import url(https://necolas.github.io/normalize.css/8.0.1/normalize.css);
-@import url(https://fonts.googleapis.com/css?family=Rhodium+Libre|Roboto&display=swap);
+@import url('https://fonts.googleapis.com/css?family=Rhodium+Libre|Roboto&display=swap');
 @import url(../blocks/page/page.css);
+@import url(../blocks/button/button.css);
 @import url(../blocks/start/start.css);
 @import url(../blocks/github-icon/github-icon.css);
