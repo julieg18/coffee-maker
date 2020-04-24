@@ -5,6 +5,7 @@
   padding: 10px 15px;
   margin: 15px 15px 0;
   font-size: 1.1rem;
+  z-index: 1;
 }
 
 @media (min-width: 1000px) {
