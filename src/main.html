@@ -194,6 +194,7 @@
                     value="small"
                     type="radio"
                     name="size"
+                    id="small"
                   />
                   <span
                     class="customization__btn customization__btn_icon_small-cup"
@@ -208,6 +209,7 @@
                     value="medium"
                     type="radio"
                     name="size"
+                    id="medium"
                     checked
                   />
                   <span
@@ -223,6 +225,7 @@
                     value="large"
                     type="radio"
                     name="size"
+                    id="large"
                   />
                   <span
                     class="customization__btn customization__btn_icon_large-cup"
@@ -242,6 +245,7 @@
                     type="radio"
                     name="roast"
                     value="light"
+                    id="light"
                   />
                   <span
                     class="customization__btn customization__btn_icon_coffee"
@@ -250,12 +254,13 @@
                 </label>
               </li>
               <li class="customization__option-wrapper">
-                <label for="medium" class="customization__option">
+                <label for="medium-roast" class="customization__option">
                   <input
                     class="customization__input"
                     type="radio"
                     name="roast"
                     value="medium"
+                    id="medium-roast"
                     checked
                   />
                   <span
@@ -271,6 +276,7 @@
                     type="radio"
                     name="roast"
                     value="dark"
+                    id="dark"
                   />
                   <span
                     class="customization__btn customization__btn_icon_coffee"
@@ -284,12 +290,29 @@
             <h3 class="customization__title">Sweeteners:</h3>
             <ul class="customization__options">
               <li class="customization__option-wrapper">
+                <label for="no-sweetener" class="customization__option">
+                  <input
+                    class="customization__input"
+                    type="radio"
+                    name="sweetener"
+                    value="no-sweetener"
+                    id="no-sweetener"
+                    checked
+                  />
+                  <span
+                    class="customization__btn customization__btn_icon_no-sweetener"
+                  ></span>
+                  <span class="customization__label-text">None</span>
+                </label>
+              </li>
+              <li class="customization__option-wrapper">
                 <label for="sugar" class="customization__option">
                   <input
                     class="customization__input"
                     type="radio"
                     name="sweetener"
                     value="sugar"
+                    id="sugar"
                     checked
                   />
                   <span
@@ -305,6 +328,7 @@
                     type="radio"
                     name="sweetener"
                     value="stevia"
+                    id="stevia"
                   />
                   <span
                     class="customization__btn customization__btn_icon_stevia"
@@ -319,6 +343,7 @@
                     type="radio"
                     name="sweetener"
                     value="honey"
+                    id="honey"
                   />
                   <span
                     class="customization__btn customization__btn_icon_honey"
@@ -338,7 +363,7 @@
                     type="checkbox"
                     name="flavoring"
                     value="vanilla"
-                    checked
+                    id="vanilla"
                   />
                   <span
                     class="customization__btn customization__btn_icon_vanilla"
@@ -353,7 +378,7 @@
                     type="checkbox"
                     name="flavoring"
                     value="peppermint"
-                    checked
+                    id="peppermint"
                   />
                   <span
                     class="customization__btn customization__btn_icon_peppermint"
@@ -368,7 +393,7 @@
                     type="checkbox"
                     name="flavoring"
                     value="chocolate"
-                    checked
+                    id="chocolate"
                   />
                   <span
                     class="customization__btn customization__btn_icon_chocolate"
@@ -391,6 +416,7 @@
                     type="radio"
                     name="additional-options"
                     value="cream"
+                    id="cream"
                   />
                   <span
                     class="customization__btn customization__btn_icon_cream"
@@ -401,67 +427,73 @@
                 </label>
                 <ul class="customization__choices">
                   <li>
-                    <label for="0" class="customization__choice">
+                    <label for="cream-0" class="customization__choice">
                       <input
                         type="radio"
                         name="cream-choices"
                         value="0"
                         class="customization__input"
+                        id="cream-0"
                         checked
                       />
                       <button class="customization__choice-btn">0</button>
                     </label>
                   </li>
                   <li>
-                    <label for="1" class="customization__choice">
+                    <label for="cream-1" class="customization__choice">
                       <input
                         type="radio"
                         name="cream-choices"
                         value="1"
+                        id="cream-1"
                         class="customization__input"
                       />
                       <button class="customization__choice-btn">1</button>
                     </label>
                   </li>
                   <li>
-                    <label for="2" class="customization__choice">
+                    <label for="cream-2" class="customization__choice">
                       <input
                         type="radio"
                         name="cream-choices"
                         value="2"
+                        id="cream-2"
                         class="customization__input"
                       />
                       <button class="customization__choice-btn">2</button>
                     </label>
                   </li>
                   <li>
-                    <label for="3" class="customization__choice">
+                    <label for="cream-3" class="customization__choice">
                       <input
                         type="radio"
                         name="cream-choices"
                         value="3"
+                        id="cream-3"
                         class="customization__input"
                       />
                       <button class="customization__choice-btn">3</button>
                     </label>
                   </li>
                   <li>
-                    <label for="4" class="customization__choice">
+                    <label for="cream-4" class="customization__choice">
                       <input
                         type="radio"
                         name="cream-choices"
                         value="4"
+                        id="cream-4"
                         class="customization__input"
                       />
                       <button class="customization__choice-btn">4</button>
                     </label>
                   </li>
                   <li>
-                    <label for="5" class="customization__choice">
+                    <label for="cream-5" class="customization__choice">
                       <input
                         type="radio"
                         name="cream-choices"
                         value="5"
+                        id="cream-5"
                         class="customization__input"
                       />
                       <button class="customization__choice-btn">5</button>
@@ -479,6 +511,7 @@
                     type="radio"
                     name="additional-options"
                     value="soy-milk"
+                    id="soy-milk"
                   />
                   <span
                     class="customization__btn customization__btn_icon_soy-milk"
@@ -487,11 +520,12 @@
                 </label>
                 <ul class="customization__choices">
                   <li>
-                    <label for="0" class="customization__choice">
+                    <label for="soy-milk-0" class="customization__choice">
                       <input
                         type="radio"
                         name="soy-milk-choices"
                         value="0"
+                        id="soy-milk-0"
                         class="customization__input"
                         checked
                       />
@@ -499,55 +533,60 @@
                     </label>
                   </li>
                   <li>
-                    <label for="1" class="customization__choice">
+                    <label for="soy-milk-1" class="customization__choice">
                       <input
                         type="radio"
                         name="soy-milk-choices"
                         value="1"
+                        id="soy-milk-1"
                         class="customization__input"
                       />
                       <button class="customization__choice-btn">1</button>
                     </label>
                   </li>
                   <li>
-                    <label for="2" class="customization__choice">
+                    <label for="soy-milk-2" class="customization__choice">
                       <input
                         type="radio"
                         name="soy-milk-choices"
                         value="2"
                         class="customization__input"
+                        id="soy-milk-2"
                       />
                       <button class="customization__choice-btn">2</button>
                     </label>
                   </li>
                   <li>
-                    <label for="3" class="customization__choice">
+                    <label for="soy-milk-3" class="customization__choice">
                       <input
                         type="radio"
                         name="soy-milk-choices"
                         value="3"
+                        id="soy-milk-3"
                         class="customization__input"
                       />
                       <button class="customization__choice-btn">3</button>
                     </label>
                   </li>
                   <li>
-                    <label for="4" class="customization__choice">
+                    <label for="soy-milk-4" class="customization__choice">
                       <input
                         type="radio"
                         name="soy-milk-choices"
                         value="4"
+                        id="soy-milk-4"
                         class="customization__input"
                       />
                       <button class="customization__choice-btn">4</button>
                     </label>
                   </li>
                   <li>
-                    <label for="5" class="customization__choice">
+                    <label for="soy-milk-5" class="customization__choice">
                       <input
                         type="radio"
                         name="soy-milk-choices"
                         value="5"
+                        id="soy-milk-5"
                         class="customization__input"
                       />
                       <button class="customization__choice-btn">5</button>
@@ -565,6 +604,7 @@
                     type="radio"
                     name="additional-options"
                     value="almond-milk"
+                    id="almond-milk"
                   />
                   <span
                     class="customization__btn customization__btn_icon_almond-milk"
@@ -573,67 +613,73 @@
                 </label>
                 <ul class="customization__choices">
                   <li>
-                    <label for="0" class="customization__choice">
+                    <label for="almond-milk-0" class="customization__choice">
                       <input
                         type="radio"
                         name="almond-milk-choices"
                         value="0"
                         class="customization__input"
+                        id="almond-milk-0"
                         checked
                       />
                       <button class="customization__choice-btn">0</button>
                     </label>
                   </li>
                   <li>
-                    <label for="1" class="customization__choice">
+                    <label for="almond-milk-1" class="customization__choice">
                       <input
                         type="radio"
                         name="almond-milk-choices"
                         value="1"
+                        id="almond-milk-1"
                         class="customization__input"
                       />
                       <button class="customization__choice-btn">1</button>
                     </label>
                   </li>
                   <li>
-                    <label for="2" class="customization__choice">
+                    <label for="almond-milk-2" class="customization__choice">
                       <input
                         type="radio"
                         name="almond-milk-choices"
                         value="2"
+                        id="almond-milk-2"
                         class="customization__input"
                       />
                       <button class="customization__choice-btn">2</button>
                     </label>
                   </li>
                   <li>
-                    <label for="3" class="customization__choice">
+                    <label for="almond-milk-3" class="customization__choice">
                       <input
                         type="radio"
                         name="almond-milk-choices"
                         value="3"
+                        id="almond-milk-3"
                         class="customization__input"
                       />
                       <button class="customization__choice-btn">3</button>
                     </label>
                   </li>
                   <li>
-                    <label for="4" class="customization__choice">
+                    <label for="almond-milk-4" class="customization__choice">
                       <input
                         type="radio"
                         name="almond-milk-choices"
                         value="4"
+                        id="almond-milk-4"
                         class="customization__input"
                       />
                       <button class="customization__choice-btn">4</button>
                     </label>
                   </li>
                   <li>
-                    <label for="5" class="customization__choice">
+                    <label for="almond-milk-5" class="customization__choice">
                       <input
                         type="radio"
                         name="almond-milk-choices"
                         value="5"
+                        id="almond-milk-5"
                         class="customization__input"
                       />
                       <button class="customization__choice-btn">5</button>
@@ -653,6 +699,7 @@
                     type="checkbox"
                     name="additional-options"
                     value="whipped-cream"
+                    id="whipped-cream"
                     checked
                   />
                   <span
@@ -735,8 +782,8 @@
           >
         </li>
         <li class="footer__attribution">
-          Stevia, sugar cane, coffee beans, peppermint, and vanilla icons made
-          by
+          Stevia, sugar cane, no sweetener, coffee beans, peppermint, and
+          vanilla icons made by
           <a
             class="footer__attribution-link"
             target="_blank"
