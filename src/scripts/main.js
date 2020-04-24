@@ -9,6 +9,7 @@ const coffeeFlavorings = document.querySelector('.coffee__flavorings');
 const labels = document.querySelectorAll('label');
 const sizeInputs = document.querySelectorAll('input[name="size"]');
 const roastInputs = document.querySelectorAll('input[name="roast"]');
+const sweetenerInputs = document.querySelectorAll('input[name="sweetener"]');
 
 function getCoffeeSizeClass(el, cupSize) {
   return `coffee__${el}_size_${cupSize}`;
@@ -64,6 +65,22 @@ function changeCoffeeRoast(e) {
   coffeeLiquid.classList.add(`coffee__liquid_roast_${roast}`);
 }
 
+function changeCoffeeSweetener(e) {
+  const input = e.target;
+  const sweetener = input.value;
+  const unusedSweeteners = ['sugar', 'honey', 'stevia', 'none'].filter(
+    (sweetenerName) => sweetenerName !== sweetener,
+  );
+  unusedSweeteners.forEach((unusedSweetener) => {
+    coffeeSweeteners.forEach((sweetenerEl) => {
+      sweetenerEl.classList.remove(`coffee__sweetener_type_${unusedSweetener}`);
+    });
+  });
+  coffeeSweeteners.forEach((sweetenerEl) => {
+    sweetenerEl.classList.add(`coffee__sweetener_type_${sweetener}`);
+  });
+}
+
 function clickCorrespondingInput(e) {
   const id = this.getAttribute('for');
   if (
@@ -76,12 +93,13 @@ function clickCorrespondingInput(e) {
   }
 }
 
-labels.forEach((label) => {
-  label.addEventListener('click', clickCorrespondingInput);
-});
-sizeInputs.forEach((sizeInput) => {
-  sizeInput.addEventListener('click', changeCoffeeSize);
-});
-roastInputs.forEach((roastInput) => {
-  roastInput.addEventListener('click', changeCoffeeRoast);
-});
+function addEventListenersToElements(elements, listenerFunc) {
+  elements.forEach((element) => {
+    element.addEventListener('click', listenerFunc);
+  });
+}
+
+addEventListenersToElements(labels, clickCorrespondingInput);
+addEventListenersToElements(sizeInputs, changeCoffeeSize);
+addEventListenersToElements(roastInputs, changeCoffeeRoast);
+addEventListenersToElements(sweetenerInputs, changeCoffeeSweetener);

@@ -10,9 +10,9 @@
 @import url(./__sweetener/_type/coffee__sweetener_type_sugar.css);
 @import url(./__sweetener/_type/coffee__sweetener_type_stevia.css);
 @import url(./__sweetener/_type/coffee__sweetener_type_honey.css);
+@import url(./__sweetener/_type/coffee__sweetener_type_none.css);
 @import url(./__sweetener/_size/coffee__sweetener_size_small.css);
 @import url(./__sweetener/_size/coffee__sweetener_size_large.css);
-@import url(./__sweetener/_show/coffee__sweetener_show.css);
 @import url(./__whipped-cream/coffee__whipped-cream.css);
 @import url(./__whipped-cream/__show/coffee__whipped-cream_show.css);
 @import url(./__whipped-cream/_size/coffee__whipped-cream_size_small.css);
