@@ -8,6 +8,7 @@ const coffeeWhippedCream = document.querySelector('.coffee__whipped-cream');
 const coffeeFlavorings = document.querySelector('.coffee__flavorings');
 const labels = document.querySelectorAll('label');
 const sizeInputs = document.querySelectorAll('input[name="size"]');
+const roastInputs = document.querySelectorAll('input[name="roast"]');
 
 function getCoffeeSizeClass(el, cupSize) {
   return `coffee__${el}_size_${cupSize}`;
@@ -51,6 +52,18 @@ function changeCoffeeSize(e) {
   }
 }
 
+function changeCoffeeRoast(e) {
+  const input = e.target;
+  const roast = input.value;
+  const unusedRoasts = ['light', 'medium', 'dark'].filter(
+    (roastName) => roastName !== roast,
+  );
+  unusedRoasts.forEach((unusedRoast) => {
+    coffeeLiquid.classList.remove(`coffee__liquid_roast_${unusedRoast}`);
+  });
+  coffeeLiquid.classList.add(`coffee__liquid_roast_${roast}`);
+}
+
 function clickCorrespondingInput(e) {
   const id = this.getAttribute('for');
   if (
@@ -68,4 +81,7 @@ labels.forEach((label) => {
 });
 sizeInputs.forEach((sizeInput) => {
   sizeInput.addEventListener('click', changeCoffeeSize);
+});
+roastInputs.forEach((roastInput) => {
+  roastInput.addEventListener('click', changeCoffeeRoast);
 });
