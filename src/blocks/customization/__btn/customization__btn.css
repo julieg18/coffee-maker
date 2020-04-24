@@ -8,11 +8,14 @@
   background-position: 55% center;
   background-size: 65%;
   margin: 0 auto;
-  transition: background-color ease-in-out 0.2s;
+  transition: background-color ease-in-out 0.2s, transform ease-in-out 0.2s;
 }
 
-.customization__input:checked + .customization__btn,
-.customization__option:hover .customization__btn {
+.customization__input:checked + .customization__btn {
   background-color: #a44200;
   border-color: #a44200;
+}
+
+.customization__option:hover .customization__btn {
+  transform: scale(1.1);
 }

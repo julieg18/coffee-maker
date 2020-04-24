@@ -3,7 +3,6 @@
   background-position: center;
 }
 
-.customization__input:checked + .customization__btn_icon_honey,
-.customization__option:hover .customization__btn_icon_honey {
+.customization__input:checked + .customization__btn_icon_honey {
   background-image: url(../../../../images/white-honey.svg);
 }
