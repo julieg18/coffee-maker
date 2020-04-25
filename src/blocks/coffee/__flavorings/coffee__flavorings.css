@@ -1,6 +1,6 @@
 .coffee__flavorings {
   position: absolute;
-  display: grid;
+  display: none;
   width: 92%;
   height: 72%;
   margin: 0;

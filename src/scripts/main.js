@@ -6,10 +6,14 @@ const coffeeLiquid = document.querySelector('.coffee__liquid');
 const coffeeSweeteners = document.querySelectorAll('.coffee__sweetener');
 const coffeeWhippedCream = document.querySelector('.coffee__whipped-cream');
 const coffeeFlavorings = document.querySelector('.coffee__flavorings');
+const coffeeFlavoringIcons = coffeeFlavorings.querySelectorAll(
+  '.coffee__flavoring-icon',
+);
 const labels = document.querySelectorAll('label');
 const sizeInputs = document.querySelectorAll('input[name="size"]');
 const roastInputs = document.querySelectorAll('input[name="roast"]');
 const sweetenerInputs = document.querySelectorAll('input[name="sweetener"]');
+const flavoringInputs = document.querySelectorAll('input[name="flavoring"]');
 
 function getCoffeeSizeClass(el, cupSize) {
   return `coffee__${el}_size_${cupSize}`;
@@ -81,6 +85,37 @@ function changeCoffeeSweetener(e) {
   });
 }
 
+function getCoffeeFlavoringClasses() {
+  const flavorings = Array.from(flavoringInputs)
+    .filter((input) => input.checked)
+    .map((input) => `coffee__flavoring-icon_flavor_${input.value}`);
+  let flavoringClasses = [];
+  if (flavorings.length !== 0) {
+    while (flavoringClasses.length < coffeeFlavoringIcons.length) {
+      flavoringClasses = [...flavoringClasses, ...flavorings];
+    }
+    flavoringClasses = flavoringClasses.slice(0, coffeeFlavoringIcons.length);
+  }
+  return flavoringClasses;
+}
+
+function changeCoffeeFlavorings(e) {
+  const flavoringClasses = getCoffeeFlavoringClasses();
+
+  if (flavoringClasses.length !== 0) {
+    coffeeFlavorings.classList.add('coffee__flavorings_show');
+    coffeeFlavoringIcons.forEach((icon, i) => {
+      icon.className = icon.className
+        .split(' ')
+        .filter((className) => !className.includes('icon_flavor'))
+        .join(' ');
+      icon.classList.add(flavoringClasses[i]);
+    });
+  } else {
+    coffeeFlavorings.classList.remove('coffee__flavorings_show');
+  }
+}
+
 function clickCorrespondingInput(e) {
   const id = this.getAttribute('for');
   if (
@@ -103,3 +138,4 @@ addEventListenersToElements(labels, clickCorrespondingInput);
 addEventListenersToElements(sizeInputs, changeCoffeeSize);
 addEventListenersToElements(roastInputs, changeCoffeeRoast);
 addEventListenersToElements(sweetenerInputs, changeCoffeeSweetener);
+addEventListenersToElements(flavoringInputs, changeCoffeeFlavorings);
