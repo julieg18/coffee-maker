@@ -14,6 +14,9 @@ const sizeInputs = document.querySelectorAll('input[name="size"]');
 const roastInputs = document.querySelectorAll('input[name="roast"]');
 const sweetenerInputs = document.querySelectorAll('input[name="sweetener"]');
 const flavoringInputs = document.querySelectorAll('input[name="flavoring"]');
+const additionalInputs = document.querySelectorAll(
+  'input[name="additional-options"]',
+);
 
 function getCoffeeSizeClass(el, cupSize) {
   return `coffee__${el}_size_${cupSize}`;
@@ -116,6 +119,21 @@ function changeCoffeeFlavorings(e) {
   }
 }
 
+function changeCoffeeAdditionalOptions() {
+  additionalInputs.forEach((input) => {
+    switch (input.value) {
+      case 'whipped-cream':
+        if (input.checked) {
+          coffeeWhippedCream.classList.add('coffee__whipped-cream_show');
+        } else {
+          coffeeWhippedCream.classList.remove('coffee__whipped-cream_show');
+        }
+        break;
+      default:
+    }
+  });
+}
+
 function clickCorrespondingInput(e) {
   const id = this.getAttribute('for');
   if (
@@ -139,3 +157,4 @@ addEventListenersToElements(sizeInputs, changeCoffeeSize);
 addEventListenersToElements(roastInputs, changeCoffeeRoast);
 addEventListenersToElements(sweetenerInputs, changeCoffeeSweetener);
 addEventListenersToElements(flavoringInputs, changeCoffeeFlavorings);
+addEventListenersToElements(additionalInputs, changeCoffeeAdditionalOptions);
