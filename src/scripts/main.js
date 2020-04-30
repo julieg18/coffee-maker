@@ -18,6 +18,7 @@ const whippingCreamAmountInputs = document.querySelectorAll(
   'input[name="whipping-cream-amounts"]',
 );
 const creamInputs = document.querySelectorAll('input[name="cream"');
+const amountInputs = document.querySelectorAll('.customization__choice input');
 const almondMilkAmountInputs = document.querySelectorAll(
   'input[name="almond-milk-amounts"]',
 );
@@ -27,6 +28,8 @@ const soyMilkAmountInputs = document.querySelectorAll(
 const additionalInputs = document.querySelectorAll(
   'input[name="additional-options"]',
 );
+const whippedCreamInput = document.querySelector('#whipped-cream');
+const finishCoffeeLink = document.querySelector('.main__finish-link');
 
 function clickCorrespondingInput(e) {
   const id = this.getAttribute('for');
@@ -221,6 +224,45 @@ function handleCreamInputs(e) {
   }
 }
 
+function goToFinishPage(e) {
+  e.preventDefault();
+  const currentLink = new URL(window.location.href);
+  const link = new URL('/finish.html', currentLink.origin);
+
+  const getValueFromInputs = (inputs) => {
+    const checkedInput = Array.from(inputs).find((input) => input.checked);
+    return checkedInput && checkedInput.value;
+  };
+
+  const getValuesFromInputs = (inputs) =>
+    Array.from(inputs)
+      .filter((input) => input.checked)
+      .map((input) => input.value);
+
+  const coffeeInfo = {
+    size: getValueFromInputs(sizeInputs),
+    roast: getValueFromInputs(roastInputs),
+    sweetener: getValueFromInputs(sweetenerInputs),
+    flavoring: getValuesFromInputs(flavoringInputs),
+    cream: getValueFromInputs(creamInputs) || 'none',
+    amount:
+      getValuesFromInputs(amountInputs).find((amount) => amount !== '0') || 0,
+    'whipped-cream': whippedCreamInput.checked,
+  };
+
+  Object.entries(coffeeInfo).forEach(([key, value]) => {
+    if (Array.isArray(value)) {
+      value.forEach((nestedValue) => {
+        link.searchParams.append(key, nestedValue);
+      });
+    } else {
+      link.searchParams.append(key, value);
+    }
+  });
+
+  window.location.href = link.href;
+}
+
 function addEventListenersToElements(event, elements, listenerFunc) {
   elements.forEach((element) => {
     element.addEventListener(event, listenerFunc);
@@ -246,3 +288,4 @@ addEventListenersToElements(
 
 addEventListenersToElements('click', soyMilkAmountInputs, changeCoffeeCream);
 addEventListenersToElements('click', almondMilkAmountInputs, changeCoffeeCream);
+finishCoffeeLink.addEventListener('click', goToFinishPage);
