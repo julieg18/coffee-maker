@@ -1,0 +1,14 @@
+@import url(./__title/finish__title.css);
+@import url(./__coffee/finish__coffee.css);
+@import url(./__button/finish__button.css);
+
+.finish {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .finish {
+    width: 50%;
+    margin: auto;
+  }
+}

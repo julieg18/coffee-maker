@@ -1,0 +1,9 @@
+.finish__coffee {
+  width: 50%;
+}
+
+@media (min-width: 768px) {
+  .finish__coffee {
+    width: 40%;
+  }
+}

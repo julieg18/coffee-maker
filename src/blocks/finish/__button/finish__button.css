@@ -1,0 +1,9 @@
+.finish__button {
+  padding: 10px;
+  width: 130px;
+  margin: 15px 0;
+}
+
+.finish__make-another-link .finish__button {
+  margin-right: 15px;
+}

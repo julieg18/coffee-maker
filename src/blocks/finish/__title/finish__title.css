@@ -1,0 +1,12 @@
+.finish__title {
+  font-family: 'Rhodium Libre', serif;
+  margin: 20px 0 0 0;
+  font-size: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .finish__title {
+    font-size: 2.25rem;
+    margin: 25px 0 0 0;
+  }
+}
