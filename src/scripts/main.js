@@ -1,5 +1,11 @@
 import '../main.html';
 import '../pages/main.css';
+import {
+  getCoffeeSizeClass,
+  addCoffeeSize,
+  getCoffeeColor,
+  getCoffeeFlavoringClasses,
+} from './coffee';
 
 const coffeeCup = document.querySelector('.coffee__cup');
 const coffeeLiquid = document.querySelector('.coffee__liquid');
@@ -43,10 +49,6 @@ function clickCorrespondingInput(e) {
   }
 }
 
-function getCoffeeSizeClass(el, cupSize) {
-  return `coffee__${el}_size_${cupSize}`;
-}
-
 function removeCoffeeSize(size) {
   coffeeCup.classList.remove(getCoffeeSizeClass('cup', size));
   coffeeLiquid.classList.remove(getCoffeeSizeClass('liquid', size));
@@ -57,16 +59,6 @@ function removeCoffeeSize(size) {
     getCoffeeSizeClass('whipped-cream', size),
   );
   coffeeFlavorings.classList.remove(getCoffeeSizeClass('flavorings', size));
-}
-
-function addCoffeeSize(size) {
-  coffeeCup.classList.add(getCoffeeSizeClass('cup', size));
-  coffeeLiquid.classList.add(getCoffeeSizeClass('liquid', size));
-  coffeeSweeteners.forEach((sweetener) => {
-    sweetener.classList.add(getCoffeeSizeClass('sweetener', size));
-  });
-  coffeeWhippedCream.classList.add(getCoffeeSizeClass('whipped-cream', size));
-  coffeeFlavorings.classList.add(getCoffeeSizeClass('flavorings', size));
 }
 
 function changeCoffeeSize(e) {
@@ -113,22 +105,11 @@ function changeCoffeeSweetener(e) {
   });
 }
 
-function getCoffeeFlavoringClasses() {
+function changeCoffeeFlavorings() {
   const flavorings = Array.from(flavoringInputs)
     .filter((input) => input.checked)
     .map((input) => `coffee__flavoring-icon_flavor_${input.value}`);
-  let flavoringClasses = [];
-  if (flavorings.length !== 0) {
-    while (flavoringClasses.length < coffeeFlavoringIcons.length) {
-      flavoringClasses = [...flavoringClasses, ...flavorings];
-    }
-    flavoringClasses = flavoringClasses.slice(0, coffeeFlavoringIcons.length);
-  }
-  return flavoringClasses;
-}
-
-function changeCoffeeFlavorings(e) {
-  const flavoringClasses = getCoffeeFlavoringClasses();
+  const flavoringClasses = getCoffeeFlavoringClasses(flavorings);
 
   if (flavoringClasses.length !== 0) {
     coffeeFlavorings.classList.add('coffee__flavorings_show');
@@ -159,30 +140,14 @@ function changeCoffeeAdditionalOptions() {
   });
 }
 
-function getCoffeeColor(creamer, amount) {
-  const colors = {
-    light: '#653423',
-    medium: '#592a1c',
-    dark: '#38150e',
-    'whipping-cream': ['#A0583A', '#BE7644', '#E8B885', '#F3DAB4', '#FAEAC2'],
-    'soy-milk': ['#95482B', '#B76938', '#E5B17E', '#F2D6B0', '#F9E6BE'],
-    'almond-milk': ['#8A462E', '#AA5F32', '#D29F71', '#F0D2AC', '#F8E3BB'],
-  };
-
-  if (amount === '0') {
-    return colors[Array.from(roastInputs).find((input) => input.checked).value];
-  }
-  return colors[creamer][amount - 1];
-}
-
 function uncheckOtherCreamInputs(creamType) {
   const uncheckCreamInputs = (creams) => {
     creams.forEach((cream) => {
-      const amountInputs = document.querySelectorAll(
+      const inputs = document.querySelectorAll(
         `input[name="${cream}-amounts"]`,
       );
 
-      amountInputs[0].click();
+      inputs[0].click();
     });
   };
   const creamsToBeUnchecked = [
@@ -205,22 +170,26 @@ function changeCoffeeCream(e) {
     uncheckOtherCreamInputs(cream);
   }
 
-  coffeeLiquid.style.fill = getCoffeeColor(cream, amount);
+  coffeeLiquid.style.fill = getCoffeeColor(
+    cream,
+    amount,
+    Array.from(roastInputs).find((input) => input.checked).value,
+  );
 }
 
 function handleCreamInputs(e) {
   const input = e.target;
   const inputCreamType = input.value;
 
-  const amountInputs = document.querySelectorAll(
+  const inputs = document.querySelectorAll(
     `input[name="${inputCreamType}-amounts"]`,
   );
 
-  if (!amountInputs[0].checked) {
-    amountInputs[0].click();
+  if (!inputs[0].checked) {
+    inputs[0].click();
     input.checked = false;
   } else {
-    amountInputs[1].click();
+    inputs[1].click();
   }
 }
 
