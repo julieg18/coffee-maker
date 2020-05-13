@@ -47,9 +47,53 @@ function getCoffeeFlavoringClasses(flavoringClassOpts) {
   return flavoringClasses;
 }
 
+function getCoffeeObj(url) {
+  const coffeeOrderParams = new URLSearchParams(new URL(url).searchParams);
+  const coffeeObj = {
+    flavoring: [],
+  };
+
+  coffeeOrderParams.forEach((value, key) => {
+    if (key === 'flavoring') {
+      coffeeObj.flavoring.push(value);
+    } else {
+      coffeeObj[key] = value;
+    }
+  });
+  return coffeeObj;
+}
+
+function createCoffee(coffeeObj) {
+  const { size, roast, sweetener, flavoring, cream, amount } = coffeeObj;
+
+  addCoffeeSize(size);
+
+  coffeeLiquid.classList.add(`coffee__liquid_roast_${roast}`);
+
+  coffeeSweeteners.forEach((sweetenerEl) => {
+    sweetenerEl.classList.remove('coffee__sweetener_type_none');
+    sweetenerEl.classList.add(`coffee__sweetener_type_${sweetener}`);
+  });
+
+  if (flavoring.length !== 0) {
+    coffeeFlavorings.classList.add('coffee__flavorings_show');
+    const flavoringOptions = Array.from(flavoring).map(
+      (flavor) => `coffee__flavoring-icon_flavor_${flavor}`,
+    );
+    const classes = getCoffeeFlavoringClasses(flavoringOptions);
+    coffeeFlavoringIcons.forEach((icon, i) => {
+      icon.classList.add(classes[i]);
+    });
+  }
+
+  coffeeLiquid.style.fill = getCoffeeColor(cream, amount, roast);
+}
+
 export {
   getCoffeeSizeClass,
   addCoffeeSize,
   getCoffeeColor,
   getCoffeeFlavoringClasses,
+  getCoffeeObj,
+  createCoffee,
 };

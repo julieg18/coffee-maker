@@ -5,6 +5,8 @@ import {
   addCoffeeSize,
   getCoffeeColor,
   getCoffeeFlavoringClasses,
+  getCoffeeObj,
+  createCoffee,
 } from './coffee';
 
 const coffeeCup = document.querySelector('.coffee__cup');
@@ -23,7 +25,7 @@ const flavoringInputs = document.querySelectorAll('input[name="flavoring"]');
 const whippingCreamAmountInputs = document.querySelectorAll(
   'input[name="whipping-cream-amounts"]',
 );
-const creamInputs = document.querySelectorAll('input[name="cream"');
+const creamInputs = document.querySelectorAll('input[name="cream"]');
 const amountInputs = document.querySelectorAll('.customization__choice input');
 const almondMilkAmountInputs = document.querySelectorAll(
   'input[name="almond-milk-amounts"]',
@@ -36,6 +38,48 @@ const additionalInputs = document.querySelectorAll(
 );
 const whippedCreamInput = document.querySelector('#whipped-cream');
 const finishCoffeeLink = document.querySelector('.main__finish-link');
+
+function setUpInputs(coffeeObj) {
+  const { size, roast, sweetener, flavoring, cream, amount } = coffeeObj;
+  const sizeInput = Array.from(sizeInputs).find(
+    (input) => input.value === size,
+  );
+  const roastInput = Array.from(roastInputs).find(
+    (input) => input.value === roast,
+  );
+  const sweetenerInput = Array.from(sweetenerInputs).find(
+    (input) => input.value === sweetener,
+  );
+  const selectedFlavoringInputs = Array.from(flavoringInputs).filter((input) =>
+    flavoring.includes(input.value),
+  );
+
+  sizeInput.checked = true;
+  roastInput.checked = true;
+  sweetenerInput.checked = true;
+  selectedFlavoringInputs.forEach((input) => {
+    input.checked = true;
+  });
+  whippedCreamInput.checked = coffeeObj['whipped-cream'] === 'true';
+  if (amount !== '0') {
+    const creamInput = Array.from(creamInputs).find(
+      (input) => input.value === cream,
+    );
+    const creamAmountInput = Array.from(amountInputs).find(
+      (input) => input.id === `${cream}-${amount}`,
+    );
+    creamInput.checked = true;
+    creamAmountInput.checked = true;
+  }
+}
+
+function setUpCoffee() {
+  if (window.location.href.includes('?')) {
+    const coffeeObj = getCoffeeObj(window.location.href);
+    createCoffee(coffeeObj);
+    setUpInputs(coffeeObj);
+  }
+}
 
 function clickCorrespondingInput(e) {
   const id = this.getAttribute('for');
@@ -78,8 +122,7 @@ function changeCoffeeSize(e) {
 }
 
 function changeCoffeeRoast(e) {
-  const input = e.target;
-  const roast = input.value;
+  const roast = e.target.value;
   const unusedRoasts = ['light', 'medium', 'dark'].filter(
     (roastName) => roastName !== roast,
   );
@@ -87,6 +130,12 @@ function changeCoffeeRoast(e) {
     coffeeLiquid.classList.remove(`coffee__liquid_roast_${unusedRoast}`);
   });
   coffeeLiquid.classList.add(`coffee__liquid_roast_${roast}`);
+  const isCreamAdded = Array.from(amountInputs).some(
+    (input) => input.checked && input.value !== '0',
+  );
+  if (!isCreamAdded) {
+    coffeeLiquid.removeAttribute('style');
+  }
 }
 
 function changeCoffeeSweetener(e) {
@@ -258,3 +307,4 @@ addEventListenersToElements(
 addEventListenersToElements('click', soyMilkAmountInputs, changeCoffeeCream);
 addEventListenersToElements('click', almondMilkAmountInputs, changeCoffeeCream);
 finishCoffeeLink.addEventListener('click', goToFinishPage);
+setUpCoffee();
