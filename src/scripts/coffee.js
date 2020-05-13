@@ -87,6 +87,10 @@ function createCoffee(coffeeObj) {
   }
 
   coffeeLiquid.style.fill = getCoffeeColor(cream, amount, roast);
+
+  if (coffeeObj['whipped-cream']) {
+    coffeeWhippedCream.classList.add('coffee__whipped-cream_show');
+  }
 }
 
 export {
