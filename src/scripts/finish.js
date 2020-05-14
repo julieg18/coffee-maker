@@ -6,7 +6,7 @@ const keepEditingLink = document.querySelector('.finish__edit-coffee-link');
 
 function addHrefToLink() {
   const url = new URL(window.location.href);
-  const link = new URL('/main.html', url.origin);
+  const link = new URL('/coffee-maker/main.html', url.origin);
   const searchParams = new URLSearchParams(url.searchParams);
   keepEditingLink.href = `${link.toString()}?${searchParams.toString()}`;
 }

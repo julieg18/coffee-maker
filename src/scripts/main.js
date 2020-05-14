@@ -245,7 +245,7 @@ function handleCreamInputs(e) {
 function goToFinishPage(e) {
   e.preventDefault();
   const currentLink = new URL(window.location.href);
-  const link = new URL('/finish.html', currentLink.origin);
+  const link = new URL('/coffee-maker/finish.html', currentLink.origin);
 
   const getValueFromInputs = (inputs) => {
     const checkedInput = Array.from(inputs).find((input) => input.checked);
