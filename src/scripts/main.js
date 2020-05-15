@@ -3,6 +3,7 @@ import '../pages/main.css';
 import {
   getCoffeeSizeClass,
   addCoffeeSize,
+  addCoffeeSweetener,
   getCoffeeColor,
   getCoffeeFlavoringClasses,
   getCoffeeObj,
@@ -94,14 +95,9 @@ function clickCorrespondingInput(e) {
 }
 
 function removeCoffeeSize(size) {
-  coffeeCup.classList.remove(getCoffeeSizeClass('cup', size));
-  coffeeLiquid.classList.remove(getCoffeeSizeClass('liquid', size));
   coffeeSweeteners.forEach((sweetener) => {
     sweetener.classList.remove(getCoffeeSizeClass('sweetener', size));
   });
-  coffeeWhippedCream.classList.remove(
-    getCoffeeSizeClass('whipped-cream', size),
-  );
   coffeeFlavorings.classList.remove(getCoffeeSizeClass('flavorings', size));
 }
 
@@ -111,12 +107,15 @@ function changeCoffeeSize(e) {
   const unusedSizes = ['small', 'medium', 'large'].filter(
     (sizeName) => size !== sizeName,
   );
+  const doesCoffeeHaveSize = (size) =>
+    coffeeFlavorings.classList.contains(getCoffeeSizeClass('flavorings', size));
+
   unusedSizes.forEach((unusedSize) => {
-    if (coffeeCup.classList.contains(getCoffeeSizeClass('cup', unusedSize))) {
+    if (doesCoffeeHaveSize(unusedSize)) {
       removeCoffeeSize(unusedSize);
     }
   });
-  if (!coffeeCup.classList.contains(getCoffeeSizeClass('cup', size))) {
+  if (!doesCoffeeHaveSize(size)) {
     addCoffeeSize(size);
   }
 }
@@ -150,7 +149,7 @@ function changeCoffeeSweetener(e) {
     });
   });
   coffeeSweeteners.forEach((sweetenerEl) => {
-    sweetenerEl.classList.add(`coffee__sweetener_type_${sweetener}`);
+    addCoffeeSweetener(sweetenerEl, sweetener);
   });
 }
 
@@ -303,7 +302,6 @@ addEventListenersToElements(
   whippingCreamAmountInputs,
   changeCoffeeCream,
 );
-
 addEventListenersToElements('click', soyMilkAmountInputs, changeCoffeeCream);
 addEventListenersToElements('click', almondMilkAmountInputs, changeCoffeeCream);
 finishCoffeeLink.addEventListener('click', goToFinishPage);

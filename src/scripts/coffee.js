@@ -5,19 +5,59 @@ const coffeeSweeteners = coffee.querySelectorAll('.coffee__sweetener');
 const coffeeWhippedCream = coffee.querySelector('.coffee__whipped-cream');
 const coffeeFlavorings = coffee.querySelector('.coffee__flavorings');
 const coffeeFlavoringIcons = coffee.querySelectorAll('.coffee__flavoring-icon');
+const coffeePaths = {
+  small: {
+    cup: 'M 1 50 L 99 50 L 85 149 L 15 149 Z',
+    liquid: 'M 5 60 L 95 60 L 83 147 L 17 147 Z',
+    'whipped-cream': 'M 3 51 L 97 51 L 94.46 64 L 5.5 64 Z',
+  },
+
+  medium: {
+    cup: 'M 1 25 L 99 25 L 85 149 L 15 149 Z',
+    liquid: 'M 4 34 L 96 34 L 83 147 L 17 147 Z',
+    'whipped-cream': 'M 3 26 L 97 26 L 95.36 42 L 4.6 42 Z',
+  },
+
+  large: {
+    cup: 'M 1 3 L 99 3 L 85 149 L 15 149 Z',
+    liquid: 'M 4 13 L 96 13 L 83 147 L 17 147 Z',
+    'whipped-cream': 'M 3 4 L 97 4 L 95.36 20 L 4.6 20 Z',
+  },
+};
 
 function getCoffeeSizeClass(el, cupSize) {
   return `coffee__${el}_size_${cupSize}`;
 }
 
 function addCoffeeSize(size) {
-  coffeeCup.classList.add(getCoffeeSizeClass('cup', size));
-  coffeeLiquid.classList.add(getCoffeeSizeClass('liquid', size));
+  const [cup, liquid, whippedCream] = Object.values(coffeePaths[size]);
+  coffeeCup.setAttribute('d', cup);
+  coffeeLiquid.setAttribute('d', liquid);
   coffeeSweeteners.forEach((sweetener) => {
     sweetener.classList.add(getCoffeeSizeClass('sweetener', size));
   });
-  coffeeWhippedCream.classList.add(getCoffeeSizeClass('whipped-cream', size));
+  coffeeWhippedCream.setAttribute('d', whippedCream);
   coffeeFlavorings.classList.add(getCoffeeSizeClass('flavorings', size));
+}
+
+function addCoffeeSweetener(sweetener, type) {
+  sweetener.classList.add(`coffee__sweetener_type_${type}`);
+
+  switch (type) {
+    case 'honey':
+      sweetener.setAttribute('rx', 1);
+      sweetener.setAttribute('ry', 1);
+      break;
+    case 'sugar':
+      sweetener.setAttribute('rx', 0);
+      sweetener.setAttribute('ry', 0);
+      break;
+    case 'stevia':
+      sweetener.setAttribute('rx', 1);
+      sweetener.setAttribute('ry', 1);
+      break;
+    default:
+  }
 }
 
 function getCoffeeColor(creamer, amount, roast) {
@@ -72,7 +112,7 @@ function createCoffee(coffeeObj) {
 
   coffeeSweeteners.forEach((sweetenerEl) => {
     sweetenerEl.classList.remove('coffee__sweetener_type_none');
-    sweetenerEl.classList.add(`coffee__sweetener_type_${sweetener}`);
+    addCoffeeSweetener(sweetenerEl, sweetener);
   });
 
   if (flavoring.length !== 0) {
@@ -96,6 +136,7 @@ function createCoffee(coffeeObj) {
 export {
   getCoffeeSizeClass,
   addCoffeeSize,
+  addCoffeeSweetener,
   getCoffeeColor,
   getCoffeeFlavoringClasses,
   getCoffeeObj,
