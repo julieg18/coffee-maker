@@ -7,13 +7,9 @@
 @import url(./__sweetener/_type/coffee__sweetener_type_stevia.css);
 @import url(./__sweetener/_type/coffee__sweetener_type_honey.css);
 @import url(./__sweetener/_type/coffee__sweetener_type_none.css);
-@import url(./__sweetener/_size/coffee__sweetener_size_small.css);
-@import url(./__sweetener/_size/coffee__sweetener_size_large.css);
 @import url(./__whipped-cream/coffee__whipped-cream.css);
 @import url(./__whipped-cream/__show/coffee__whipped-cream_show.css);
 @import url(./__flavorings/coffee__flavorings.css);
-@import url(./__flavorings/_size/coffee__flavorings_size_small.css);
-@import url(./__flavorings/_size/coffee__flavorings_size_large.css);
 @import url(./__flavorings/_show/coffee__flavorings_show.css);
 @import url(./__flavoring-wrapper/coffee__flavoring-wrapper.css);
 @import url(./__flavoring/coffee__flavoring.css);

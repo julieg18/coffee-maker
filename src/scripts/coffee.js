@@ -31,28 +31,25 @@ function getCoffeeSizeClass(el, cupSize) {
 
 function addCoffeeSize(size) {
   const [cup, liquid, whippedCream] = Object.values(coffeePaths[size]);
+  ['small', 'medium', 'large'].forEach((s) => {
+    coffee.classList.remove(`coffee_size_${s}`);
+  });
+  coffee.classList.add(`coffee_size_${size}`);
   coffeeCup.setAttribute('d', cup);
   coffeeLiquid.setAttribute('d', liquid);
-  coffeeSweeteners.forEach((sweetener) => {
-    sweetener.classList.add(getCoffeeSizeClass('sweetener', size));
-  });
   coffeeWhippedCream.setAttribute('d', whippedCream);
-  coffeeFlavorings.classList.add(getCoffeeSizeClass('flavorings', size));
 }
 
 function addCoffeeSweetener(sweetener, type) {
   sweetener.classList.add(`coffee__sweetener_type_${type}`);
 
   switch (type) {
-    case 'honey':
-      sweetener.setAttribute('rx', 1);
-      sweetener.setAttribute('ry', 1);
-      break;
     case 'sugar':
       sweetener.setAttribute('rx', 0);
       sweetener.setAttribute('ry', 0);
       break;
     case 'stevia':
+    case 'honey':
       sweetener.setAttribute('rx', 1);
       sweetener.setAttribute('ry', 1);
       break;

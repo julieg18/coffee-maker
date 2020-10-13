@@ -12,11 +12,35 @@
   grid-template-columns: repeat(5, 20%);
 }
 
+.coffee_size_small .coffee__flavorings {
+  height: 52%;
+  bottom: 8px;
+  width: 90%;
+  right: 8px;
+}
+
+.coffee_size_large .coffee__flavorings {
+  height: 85%;
+}
+
 @media (min-width: 375px) {
   .coffee__flavorings {
     right: 13px;
     height: 70%;
     bottom: 3px;
     width: 86%;
+  }
+
+  .coffee_size_small .coffee__flavorings {
+    width: 84%;
+    height: 47%;
+    bottom: 16px;
+    right: 15px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .coffee_size_small .coffee__flavorings {
+    right: 18px;
   }
 }
