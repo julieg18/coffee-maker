@@ -1,6 +1,7 @@
-import '../finish.html';
-import '../pages/finish.css';
-import { getCoffeeObj, createCoffee } from './coffee';
+import '../../finish.html';
+import '../../pages/finish.css';
+import Coffee from '../components/Coffee';
+import getCoffeeOrder from '../utils/utils';
 
 const keepEditingLink = document.querySelector('.finish__edit-coffee-link');
 
@@ -11,6 +12,7 @@ function addHrefToLink() {
   keepEditingLink.href = `${link.toString()}?${searchParams.toString()}`;
 }
 
-const coffeeOrder = getCoffeeObj(window.location.href);
-createCoffee(coffeeOrder);
+const coffeeOrder = getCoffeeOrder(window.location.href);
+const coffee = new Coffee();
+coffee.createCoffee(coffeeOrder);
 addHrefToLink();

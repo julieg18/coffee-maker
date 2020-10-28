@@ -3,16 +3,19 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    index: './src/scripts/index.js',
-    main: './src/scripts/main.js',
-    finish: './src/scripts/finish.js',
+    index: './src/scripts/pages/index.js',
+    main: './src/scripts/pages/main.js',
+    finish: './src/scripts/pages/finish.js',
   },
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/coffee-maker/',
   },
   devServer: {
     port: 8080,
+    openPage: 'coffee-maker/',
+    open: true,
   },
   module: {
     rules: [
