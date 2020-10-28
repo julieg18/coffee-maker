@@ -13,6 +13,11 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    'object-curly-newline': 'never',
+    'object-curly-newline': 'off',
+    'no-underscore-dangle': ['error', { allowAfterThis: true }],
+    'no-param-reassign': ['error', { props: false }],
+    'operator-linebreak': 'off',
+    'implicit-arrow-linebreak': 'off',
+    'function-paren-newline': 'off',
   },
 };
