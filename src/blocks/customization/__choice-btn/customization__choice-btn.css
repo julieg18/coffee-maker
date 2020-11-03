@@ -3,7 +3,7 @@
   background-color: #fff;
   font-size: 1.2rem;
   padding: 5px 10px;
-  transition: background-color ease-in-out 0.2s, transform ease-in-out 0.2s;
+  transition: background-color ease-in-out 0.2s;
 }
 
 .customization__choices li:first-child .customization__choice-btn {
@@ -22,7 +22,6 @@
 
 .customization__choice-btn:hover {
   cursor: pointer;
-  transform: scale(1.1);
 }
 
 @media (min-width: 1024px) and (max-width: 1200px) {
