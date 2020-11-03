@@ -1,27 +1,22 @@
 import '../../main.html';
 import '../../pages/main.css';
 import Coffee from '../components/Coffee';
+import RadioInputGroup from '../components/RadioInputGroup';
+import CheckboxInputGroup from '../components/CheckboxInputGroup';
+import RadioWithAmountsInputGroup from '../components/RadioWithAmountsInputGroup';
 import getCoffeeOrder from '../utils/utils';
 
-const labels = document.querySelectorAll('label');
 const sizeInputs = document.querySelectorAll('input[name="size"]');
-const roastInputs = document.querySelectorAll('input[name="roast"]');
+const roastInputs = Array.from(
+  document.querySelectorAll('input[name="roast"]'),
+);
 const sweetenerInputs = document.querySelectorAll('input[name="sweetener"]');
 const flavoringInputs = document.querySelectorAll('input[name="flavoring"]');
-const whippingCreamAmountInputs = document.querySelectorAll(
-  'input[name="whipping-cream-amounts"]',
-);
 const creamInputs = Array.from(
   document.querySelectorAll('input[name="cream"]'),
 );
 const amountInputs = Array.from(
   document.querySelectorAll('.customization__choice input'),
-);
-const almondMilkAmountInputs = document.querySelectorAll(
-  'input[name="almond-milk-amounts"]',
-);
-const soyMilkAmountInputs = document.querySelectorAll(
-  'input[name="soy-milk-amounts"]',
 );
 const whippedCreamInput = document.querySelector('#whipped-cream');
 const finishCoffeeLink = document.querySelector('.main__finish-link');
@@ -70,104 +65,8 @@ function setUpCoffee() {
   }
 }
 
-function clickCorrespondingInput(e) {
-  const id = this.getAttribute('for');
-  if (
-    this === e.target ||
-    e.target.classList.contains('customization__choice-btn')
-  ) {
-    document.querySelector(`#${id}`).click();
-  } else {
-    e.stopPropagation();
-  }
-}
-
-function changeCoffeeSize(e) {
-  coffee.updateCoffeeSize(e.target.value);
-}
-
-function changeCoffeeRoast(e) {
-  const roast = e.target.value;
-  const cream = creamInputs.find((i) => i.checked);
-  const amount = cream
-    ? amountInputs.find((i) => i.checked && i.name.includes(cream.value)).value
-    : 0;
-
-  coffee.updateCoffeeColor({
-    roast,
-    cream: cream ? cream.value : 'none',
-    amount,
-  });
-}
-
-function changeCoffeeSweetener(e) {
-  coffee.updateCoffeeSweetener(e.target.value);
-}
-
-function changeCoffeeFlavorings() {
-  const flavorOptions = [];
-  flavoringInputs.forEach((flavoringInput) => {
-    if (flavoringInput.checked) {
-      flavorOptions.push(flavoringInput.value);
-    }
-  });
-  coffee.updateCoffeeFlavorings(flavorOptions);
-}
-
 function changeCoffeeWhippedCream(e) {
-  coffee.updateCoffeeWhippedCream(e.target.value);
-}
-
-function uncheckOtherCreamInputs(creamType) {
-  const uncheckCreamInputs = (creams) => {
-    creams.forEach((cream) => {
-      const inputs = document.querySelectorAll(
-        `input[name="${cream}-amounts"]`,
-      );
-
-      inputs[0].click();
-    });
-  };
-  const creamsToBeUnchecked = [
-    'whipping-cream',
-    'almond-milk',
-    'soy-milk',
-  ].filter((cream) => cream !== creamType);
-
-  uncheckCreamInputs(creamsToBeUnchecked);
-}
-
-function changeCoffeeCream(e) {
-  const cream = e.target.name.replace('-amounts', '');
-  const amount = e.target.value;
-
-  if (amount === '0') {
-    document.querySelector(`#${cream}`).checked = false;
-  } else {
-    document.querySelector(`#${cream}`).checked = true;
-    uncheckOtherCreamInputs(cream);
-  }
-
-  const roast = Number(
-    Array.from(roastInputs).find((input) => input.checked).value,
-  );
-  coffee.updateCoffeeColor({ cream, amount, roast });
-}
-
-function handleCreamInputs(e) {
-  const input = e.target;
-  const inputCreamType = input.value;
-
-  const inputs = document.querySelectorAll(
-    `input[name="${inputCreamType}-amounts"]`,
-  );
-
-  if (!inputs[0].checked) {
-    inputs[0].click();
-    input.checked = false;
-  } else {
-    inputs[1].click();
-  }
+  coffee.updateCoffeeWhippedCream(e.target.checked);
 }
 
 function goToFinishPage(e) {
@@ -209,25 +108,58 @@ function goToFinishPage(e) {
   window.location.href = link.href;
 }
 
-function addEventListenersToElements(event, elements, listenerFunc) {
-  elements.forEach((element) => {
-    element.addEventListener(event, listenerFunc);
-  });
-}
+const coffeeSizeFormGroup = new RadioInputGroup({
+  inputSelector: 'input[name="size"]',
+  clickEventHandler: (e) => {
+    coffee.updateCoffeeSize(e.target.value);
+  },
+});
+coffeeSizeFormGroup.setEventListeners();
 
-addEventListenersToElements('click', labels, clickCorrespondingInput);
-addEventListenersToElements('click', sizeInputs, changeCoffeeSize);
-addEventListenersToElements('click', roastInputs, changeCoffeeRoast);
-addEventListenersToElements('click', sweetenerInputs, changeCoffeeSweetener);
-addEventListenersToElements('click', flavoringInputs, changeCoffeeFlavorings);
+const coffeeCreamInputGroup = new RadioWithAmountsInputGroup({
+  radioName: 'cream',
+  callback: ({ radio: cream, amount }) => {
+    coffee.updateCoffeeColor({
+      roast: roastInputs.find((input) => input.checked).value,
+      cream,
+      amount,
+    });
+  },
+});
+coffeeCreamInputGroup.setEventListeners();
+
+const coffeeRoastFormGroup = new RadioInputGroup({
+  inputSelector: 'input[name="roast"]',
+  clickEventHandler: (e) => {
+    const roast = e.target.value;
+    const { radio: cream, amount } = coffeeCreamInputGroup.getValues();
+
+    coffee.updateCoffeeColor({
+      roast,
+      cream,
+      amount,
+    });
+  },
+});
+coffeeRoastFormGroup.setEventListeners();
+
+const coffeeSweetenerFormGroup = new RadioInputGroup({
+  inputSelector: 'input[name="sweetener"]',
+  clickEventHandler: (e) => {
+    coffee.updateCoffeeSweetener(e.target.value);
+  },
+});
+coffeeSweetenerFormGroup.setEventListeners();
+
+const coffeeFlavoringInputGroup = new CheckboxInputGroup({
+  inputSelector: 'input[name="flavoring"]',
+  callback: (values) => {
+    coffee.updateCoffeeFlavorings(values);
+  },
+});
+coffeeFlavoringInputGroup.setEventListeners();
+
 whippedCreamInput.addEventListener('click', changeCoffeeWhippedCream);
-addEventListenersToElements('click', creamInputs, handleCreamInputs);
-addEventListenersToElements(
-  'click',
-  whippingCreamAmountInputs,
-  changeCoffeeCream,
-);
-addEventListenersToElements('click', soyMilkAmountInputs, changeCoffeeCream);
-addEventListenersToElements('click', almondMilkAmountInputs, changeCoffeeCream);
+
 finishCoffeeLink.addEventListener('click', goToFinishPage);
 setUpCoffee();
