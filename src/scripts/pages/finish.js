@@ -2,8 +2,7 @@ import '../../finish.html';
 import '../../pages/finish.css';
 import Coffee from '../components/Coffee';
 import getCoffeeOrder from '../utils/utils';
-
-const keepEditingLink = document.querySelector('.finish__edit-coffee-link');
+import { keepEditingLink } from '../utils/constants';
 
 function addHrefToLink() {
   const url = new URL(window.location.href);

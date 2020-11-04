@@ -5,12 +5,11 @@ import RadioInputGroup from '../components/RadioInputGroup';
 import CheckboxInputGroup from '../components/CheckboxInputGroup';
 import RadioWithAmountsInputGroup from '../components/RadioWithAmountsInputGroup';
 import getCoffeeOrder from '../utils/utils';
-
-const roastInputs = Array.from(
-  document.querySelectorAll('input[name="roast"]'),
-);
-const whippedCreamInput = document.querySelector('#whipped-cream');
-const finishCoffeeLink = document.querySelector('.main__finish-link');
+import {
+  roastInputs,
+  whippedCreamInput,
+  finishCoffeeLink,
+} from '../utils/constants';
 
 const coffee = new Coffee();
 
