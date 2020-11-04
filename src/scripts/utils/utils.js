@@ -13,6 +13,7 @@ function getCoffeeOrder(url) {
   });
   coffeeOrder.whippedCream = coffeeOrder['whipped-cream'] === 'true';
   coffeeOrder.amount = Number(coffeeOrder.amount);
+  coffeeOrder.cream = coffeeOrder.cream === 'none' ? null : coffeeOrder.cream;
 
   return coffeeOrder;
 }

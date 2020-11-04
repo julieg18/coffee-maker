@@ -4,6 +4,12 @@ class CheckboxInputGroup {
     this._callback = callback;
   }
 
+  setValues(values) {
+    this._inputs.forEach((input) => {
+      input.checked = values.includes(input.value);
+    });
+  }
+
   getValues() {
     const values = [];
     this._inputs.forEach((input) => {

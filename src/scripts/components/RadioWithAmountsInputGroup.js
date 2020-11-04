@@ -54,6 +54,11 @@ class RadioWithAmountsInputGroup {
     this._callback(this._selectedValues);
   }
 
+  setValues(values) {
+    this._selectedValues = values;
+    this._updateSelectedInputs();
+  }
+
   getValues() {
     return this._selectedValues;
   }

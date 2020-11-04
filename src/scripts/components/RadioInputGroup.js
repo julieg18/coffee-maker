@@ -8,6 +8,12 @@ class RadioInputGroup {
     return this._inputs.find((input) => input.checked).value;
   }
 
+  setValue(val) {
+    this._inputs.forEach((input) => {
+      input.checked = input.value === val;
+    });
+  }
+
   setEventListeners() {
     this._inputs.forEach((input) => {
       input.addEventListener('click', this._clickEventHandler);
